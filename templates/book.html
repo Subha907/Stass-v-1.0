@@ -1,0 +1,430 @@
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Booking</title>
+      <style>
+body{
+ 	margin:0;
+ 	font-family: 'Poppins', sans-serif;
+ 	font-weight: 300;
+ }
+
+ *{
+ 	box-sizing: border-box;
+ }
+
+nav{
+  display: flex;
+  height: 80px;
+  width: 100vw;
+  background-color:#3a3b3c;
+   align-items: center;
+  justify-content: space-between;
+  padding: 0 50px 0 100px;
+  flex-wrap: wrap;
+  box-shadow: orange 0px 0px 0px 2px,orange 0px 4px 6px -1px, orange 0px 1px 0px inset;
+}
+nav .logo{
+  color: #FFA500;
+  font-size: 35px;
+  font-weight: 600;
+
+}
+nav ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+nav ul li{
+  margin: 0 5px;
+}
+nav ul li a{
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+nav ul li a.active,
+nav ul li a:hover{
+  color: #111;
+  background: #FFA500
+}
+nav .menu-btn i{
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+}
+input[type="checkbox"]{
+  display: none;
+}
+@media (max-width: 1000px){
+  nav{
+    padding: 0 40px 0 50px;
+  }
+}
+@media (max-width: 920px) {
+  nav .menu-btn i{
+    display: block;
+  }
+  #click:checked ~ .menu-btn i:before{
+    content: "\f00d";
+  }
+
+  nav ul{
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    background: #111;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: block;
+    transition: all 0.3s ease;
+    z-index: 3;
+  }
+  #click:checked ~ ul{
+    left: 0;
+  }
+  nav ul li{
+    width: 100%;
+    margin: 40px 0;
+  }
+  nav ul li a{
+    width: 100%;
+    margin-left: -100%;
+    display: block;
+    font-size: 20px;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  #click:checked ~ ul li a{
+    margin-left: 0px;
+  }
+  nav ul li a.active,
+  nav ul li a:hover{
+    background: none;
+    color: cyan;
+  }
+}
+.content{
+  position: absolute;
+  top: 60%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  width: 100%;
+height:80%;
+  padding: 0 30px;
+
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: -5%;
+    justify-content: space-around;
+    align-items:center;
+    margin-bottom: 10%;
+    height: 100vh;
+
+
+
+}
+.container-date{
+   display: flex;
+   justify-content:left;
+   margin-top: 1%;
+   margin-left: 6%;
+   box-sizing: border-box;
+   background: #ffecc2;
+   color: #be7d04;
+   width: fit-content;
+   height: fit-content;
+   padding: 1%;
+
+}
+.container .notice{
+
+    /*margin-top: 0%;*/
+    box-sizing: border-box;
+   border-left: orange solid;
+    width: 45vw;
+    height:fit-content;
+    background-color: #F5F5F5;
+    text-align: left;
+    padding: auto;
+
+}
+.container .notice .context{
+  margin: 3%;
+}
+.container .notice .context p{
+  font-weight: 200;
+  font-size: 150%;
+  color: #f2f2f2;
+}
+h1{
+  color: #FFA500;
+}
+.container .bookingForm{
+   /* margin-right: 0%;*/
+   /* margin-left: 9.5%;*/
+    box-sizing: border-box;
+    text-align: left;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 4px;
+    background: rgb(248, 238, 221);
+    height: fit-content;
+    margin-top: 4%;
+
+}
+.container .bookingForm .bform{
+  margin-top: 5%;
+  margin-left: 7%;
+  margin-right: 7%;
+  margin-bottom: 5%;;
+  font-weight: 600;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color:#111111;
+}
+.container .bookingForm .f{
+    background-color: orange;
+    padding: 6%;
+    text-align: center;
+
+}
+.container .bookingForm .f .head{
+  color: white;
+  font-weight: 600;
+  font-size: 160%;
+}
+form .error{
+  color: #ff0000;
+}
+.inp-form{
+  font-size: 100%;
+  margin-bottom: 7%;
+  border:0;
+  background-color: transparent;
+  border-bottom:2px solid #be7d04;
+  outline: 0;
+}
+
+@media (max-width: 800px) {
+  .container {
+
+    margin-top:5%;
+    margin-bottom: 101%;
+  }
+  .container .bookingForm{
+     margin-top: 10%;
+
+  }
+  .container .notice{
+    flex-grow:0.5;
+  }
+}
+.footer {
+   display: flex;
+  height: 100vh;
+  width: 100vw;
+  flex-wrap: wrap;
+   position:fixed;
+   left: 0;
+   bottom: 0;
+   width: 100vw;
+   background-color: #3a3b3c;
+   color: black;
+   text-align: center;
+   height: 10%;
+}
+.footer .fp{
+  margin-top:20;
+  position:absolute;
+  bottom: 20%;
+  right:5%;
+  font-weight:900;
+  color:#ffffc2
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/javascript">
+
+
+    function starttime()
+            {
+               let a;
+               a=new Date();
+               let h=a.getHours();
+               let m=a.getMinutes();
+               let s=a.getSeconds();
+               let date=a.toLocaleDateString(undefined);
+               m=checkTime(m);
+               s=checkTime(s);
+               h1=disen(h);
+               document.getElementById('time').innerHTML=h + ":" + m + ":" + s + " | " + date;
+               let t=setTimeout(starttime,1000);
+            }
+            function checkTime(i)
+            {
+                if (i<10) {i="0"+i};
+                return i;
+            }
+            function disen(j)
+            {
+                var bt=document.getElementById('btSubmit');
+                if((j>=0)&&(j<=23))
+                {
+                    bt.disabled=false;
+                }
+                else
+                {
+                    bt.disabled=true;
+                }
+            }
+
+    window.addEventListener("beforeunload",function(e){
+        document.body.className = "page-loading";
+    },false);
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script>
+
+  $(function() {
+    jQuery.validator.addMethod("noSpace", function(value, element) {
+      return value == '' || value.trim().length != 0;
+  }, "No space please and don't leave it empty");
+
+  $.validator.addMethod( "alpha", function( value, element ) {
+  return this.optional( element ) || /^\w+$/i.test( value );
+  }, "Letters, numbers, and underscores only please" );
+    var $registrationForm=$("#book");
+    if($registrationForm.length){
+      $registrationForm.validate({
+        rules:{
+            doctor:{
+              required:true
+            },
+            specialization:{
+              required:true
+            },
+            patientN:{
+              required:true,
+              noSpace: true
+            },
+            patientM:{
+              required:true
+            },
+
+        },
+        messages:{
+          doctor:{
+              required:"Please Select a doctor"
+            },
+            specialization:{
+              required:"Please Select a specialization"
+            },
+            patientN:{
+              required:"Please enter your name"
+            },
+            patientM:{
+              required:"Please provide a phone number"
+            },
+        }
+      });
+    }
+
+  });
+
+    </script>
+</head>
+<body onload="starttime()">
+    <nav>
+        <div class="logo">STASS</div>
+        <input type="checkbox" id="click">
+         <label for="click" class="menu-btn">
+         <i class="fas fa-bars"></i>
+         </label>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/contacts">Contact Us</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/booking" class="active">Book For Appointment </a></li>
+        </ul>
+
+    </nav>
+    <div class="background"></div>
+    <div class="container-date">
+      <div class="date">
+        <label ><B>TIME | DATE:</B></label>
+        <label id="time"></label>
+      </div>
+    </div>
+    <div class="container">
+
+        <div class="notice">
+          <div class="context">
+            <h1>Notice Here</h1>
+            <p style="font-size: 1.2rem;color:#111;font-weight: 300;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Before Filling up the form ,please click "CHECK" to check the doctor's chart <br><br>
+              <a style="text-decoration: none;background: orange;padding: 1%;color: white;font-weight: 300;" href="/doctor-Chart-PDF">Check</a><br><br>
+              After submiting the form ,Please download the PDF for the ticket</p>
+
+          </div>
+
+
+        </div>
+
+        <div class="bookingForm">
+            <div class="f">
+            <div class="ico">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+width="64" height="64"
+viewBox="0 0 172 172"
+style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="#ffa500"></path><g fill="#ffffff"><path d="M34.9375,10.75c-4.44067,0 -8.0625,3.62183 -8.0625,8.0625v134.375c0,4.44067 3.62183,8.0625 8.0625,8.0625h107.5c4.44067,0 8.0625,-3.62183 8.0625,-8.0625v-105.73633c0,-3.59033 -1.39624,-6.96021 -3.93677,-9.50073l-23.26367,-23.26367c-2.53003,-2.54053 -5.9104,-3.93677 -9.50073,-3.93677zM34.9375,16.125h77.9375v24.1875c0,4.44067 3.62183,8.0625 8.0625,8.0625h24.1875v104.8125c0,1.48022 -1.20728,2.6875 -2.6875,2.6875h-107.5c-1.48022,0 -2.6875,-1.20728 -2.6875,-2.6875v-134.375c0,-1.48022 1.20728,-2.6875 2.6875,-2.6875zM118.25,17.46875c0.44092,0.29395 0.86084,0.62988 1.24927,1.01831l23.26367,23.26367c0.37793,0.37793 0.71387,0.79785 1.01831,1.24927h-22.84375c-1.48022,0 -2.6875,-1.20728 -2.6875,-2.6875zM59.125,72.5625c-2.97095,0 -5.375,2.40405 -5.375,5.375c0,2.97095 2.40405,5.375 5.375,5.375c2.97095,0 5.375,-2.40405 5.375,-5.375c0,-2.97095 -2.40405,-5.375 -5.375,-5.375zM72.5625,75.25c-1.49072,0 -2.6875,1.19678 -2.6875,2.6875c0,1.49072 1.19678,2.6875 2.6875,2.6875h48.375c1.49072,0 2.6875,-1.19678 2.6875,-2.6875c0,-1.49072 -1.19678,-2.6875 -2.6875,-2.6875zM59.125,88.6875c-2.97095,0 -5.375,2.40405 -5.375,5.375c0,2.97095 2.40405,5.375 5.375,5.375c2.97095,0 5.375,-2.40405 5.375,-5.375c0,-2.97095 -2.40405,-5.375 -5.375,-5.375zM72.5625,91.375c-1.49072,0 -2.6875,1.19678 -2.6875,2.6875c0,1.49072 1.19678,2.6875 2.6875,2.6875h48.375c1.49072,0 2.6875,-1.19678 2.6875,-2.6875c0,-1.49072 -1.19678,-2.6875 -2.6875,-2.6875zM59.125,104.8125c-2.97095,0 -5.375,2.40405 -5.375,5.375c0,2.97095 2.40405,5.375 5.375,5.375c2.97095,0 5.375,-2.40405 5.375,-5.375c0,-2.97095 -2.40405,-5.375 -5.375,-5.375zM72.5625,107.5c-1.49072,0 -2.6875,1.19678 -2.6875,2.6875c0,1.49072 1.19678,2.6875 2.6875,2.6875h48.375c1.49072,0 2.6875,-1.19678 2.6875,-2.6875c0,-1.49072 -1.19678,-2.6875 -2.6875,-2.6875zM40.3125,134.375c-1.49072,0 -2.6875,1.19678 -2.6875,2.6875v5.375c0,1.49072 1.19678,2.6875 2.6875,2.6875c1.49072,0 2.6875,-1.19678 2.6875,-2.6875v-5.375c0,-1.49072 -1.19678,-2.6875 -2.6875,-2.6875zM53.75,134.375c-1.49072,0 -2.6875,1.19678 -2.6875,2.6875v5.375c0,1.49072 1.19678,2.6875 2.6875,2.6875c1.49072,0 2.6875,-1.19678 2.6875,-2.6875v-5.375c0,-1.49072 -1.19678,-2.6875 -2.6875,-2.6875zM67.1875,134.375c-1.49072,0 -2.6875,1.19678 -2.6875,2.6875v5.375c0,1.49072 1.19678,2.6875 2.6875,2.6875c1.49072,0 2.6875,-1.19678 2.6875,-2.6875v-5.375c0,-1.49072 -1.19678,-2.6875 -2.6875,-2.6875zM80.625,134.375c-1.49072,0 -2.6875,1.19678 -2.6875,2.6875v5.375c0,1.49072 1.19678,2.6875 2.6875,2.6875c1.49072,0 2.6875,-1.19678 2.6875,-2.6875v-5.375c0,-1.49072 -1.19678,-2.6875 -2.6875,-2.6875zM94.0625,134.375c-1.49072,0 -2.6875,1.19678 -2.6875,2.6875v5.375c0,1.49072 1.19678,2.6875 2.6875,2.6875c1.49072,0 2.6875,-1.19678 2.6875,-2.6875v-5.375c0,-1.49072 -1.19678,-2.6875 -2.6875,-2.6875zM107.5,134.375c-1.49072,0 -2.6875,1.19678 -2.6875,2.6875v5.375c0,1.49072 1.19678,2.6875 2.6875,2.6875c1.49072,0 2.6875,-1.19678 2.6875,-2.6875v-5.375c0,-1.49072 -1.19678,-2.6875 -2.6875,-2.6875zM120.9375,134.375c-1.49072,0 -2.6875,1.19678 -2.6875,2.6875v5.375c0,1.49072 1.19678,2.6875 2.6875,2.6875c1.49072,0 2.6875,-1.19678 2.6875,-2.6875v-5.375c0,-1.49072 -1.19678,-2.6875 -2.6875,-2.6875zM134.375,134.375c-1.49072,0 -2.6875,1.19678 -2.6875,2.6875v5.375c0,1.49072 1.19678,2.6875 2.6875,2.6875c1.49072,0 2.6875,-1.19678 2.6875,-2.6875v-5.375c0,-1.49072 -1.19678,-2.6875 -2.6875,-2.6875z"></path></g></g></svg>
+</div>
+<br>
+<div class="head">Booking Form</div>
+          </div>
+          <div class="bform">
+
+            <br>
+
+              <form method="POST" action="/bookingProcessing" id="book">
+                <p style="font-family:verdana">
+              Select your Preffered Doctor: <SELECT name="doctor" id="doctor" style="font-family:verdana;margin-bottom: 7%;">
+              <option  hidden selected></option>
+              {% for j in doctor %}
+                <OPTION   value={{j[1]}}> {{j[1]}} </OPTION>
+              {% endfor %}
+              </SELECT><br>
+
+              Select the specialization: <SELECT name="specialization" id="specialization" style="font-family:verdana;margin-bottom: 7%;">
+              <option  hidden selected></option>
+              {% for j1 in specialization %}
+                <OPTION   value={{j1[1]}}> {{j1[1]}} </OPTION>
+              {% endfor %}
+              </SELECT><br><br>
+              Patient Name: <br><br><input class="inp-form" type="text" name="patientN" id="patientN" placeholder="Patient Name"><br><br>
+
+              Patient Mobile Number:  <br><br><input class="inp-form" type="text" name="patientM" id="patientM" placeholder="Patient Mobile Number"><br><br>
+
+
+              <input type="submit" value="Submit" id="btSubmit" disabled style="text-decoration: none;background: orange;padding: 3%;color: white;font-weight: 400;border: 0;font-size: 90%;border-radius:4px;cursor:pointer;">
+              </p>
+              </form>
+            </div>
+
+        </div>
+<div class="footer">
+            <p class="fp">Designed And Developed By STASS Team</p>
+</div>
+             </body>
+          </html>

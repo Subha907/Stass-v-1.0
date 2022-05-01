@@ -1,0 +1,261 @@
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>About Us</title>
+      <style>
+body{
+ 	margin:0;
+ 	font-family: 'Poppins', sans-serif;
+ 	font-weight: 300;
+ }
+
+ *{
+ 	box-sizing: border-box;
+ }
+
+nav{
+  display: flex;
+  height: 80px;
+  width: 100vw;
+  background-color:#3a3b3c;
+   align-items: center;
+  justify-content: space-between;
+  padding: 0 50px 0 100px;
+  flex-wrap: wrap;
+  box-shadow: orange 0px 0px 0px 2px,orange 0px 4px 6px -1px, orange 0px 1px 0px inset;
+}
+nav .logo{
+  color: #FFA500;
+  font-size: 35px;
+  font-weight: 600;
+
+}
+nav ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+nav ul li{
+  margin: 0 5px;
+}
+nav ul li a{
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+nav ul li a.active,
+nav ul li a:hover{
+  color: #111;
+  background: #FFA500
+}
+nav .menu-btn i{
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+}
+input[type="checkbox"]{
+  display: none;
+}
+@media (max-width: 1000px){
+  nav{
+    padding: 0 40px 0 50px;
+  }
+}
+@media (max-width: 920px) {
+  nav .menu-btn i{
+    display: block;
+  }
+  #click:checked ~ .menu-btn i:before{
+    content: "\f00d";
+  }
+
+  nav ul{
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    background: #111;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: block;
+    transition: all 0.3s ease;
+    z-index: 3;
+  }
+  #click:checked ~ ul{
+    left: 0;
+  }
+  nav ul li{
+    width: 100%;
+    margin: 40px 0;
+  }
+  nav ul li a{
+    width: 100%;
+    margin-left: -100%;
+    display: block;
+    font-size: 20px;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  #click:checked ~ ul li a{
+    margin-left: 0px;
+  }
+  nav ul li a.active,
+  nav ul li a:hover{
+    background: none;
+    color: cyan;
+  }
+}
+.content{
+  position: absolute;
+  top: 60%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  width: 100%;
+height:80%;
+  padding: 0 30px;
+
+}
+.container1{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background:rgb(248, 238, 221);
+    height: 100vh;
+    width: fit-content;
+    margin-left: 5%;
+    margin-right: 4%;
+    box-sizing: border-box;
+    border: 2px solid orange;
+    margin-top:3%;
+    border-radius: 8px;
+    margin-bottom: 10%;
+
+}
+.history{
+  margin-top: 0%;
+  margin-left: 3%;
+  margin-right: 3%;
+        }
+.why{
+    margin-top: -14%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+.footer {
+   display: flex;
+  height: 100vh;
+  width: 100vw;
+  flex-wrap: wrap;
+   position:fixed;
+   left: 0;
+   bottom: 0;
+   width: 100vw;
+   background-color: #3a3b3c;
+   color: black;
+   text-align: center;
+   height: 10%;
+}
+.footer .fp{
+  margin-top:20;
+  position:absolute;
+  bottom: 2%;
+  right:5%;
+  font-weight:900;
+  color:#ffffc2
+}
+@media (min-width: 640px) {
+ marquee {
+  font-size:1rem;
+}
+}
+@media (min-width:960px) {
+ marquee {
+  font-size:1.2rem;
+}
+}
+@media (min-width:1100px) {
+ marquee {
+  font-size:1.5rem;
+}
+}
+
+@keyframes page-load {
+    from {
+        background-color: #ffc422;
+    }
+    to {
+        background-color: #c0392b;
+    }
+}
+.page-loading::before {
+    content:" ";
+    display:block;
+    position:fixed;
+    z-index:10;
+    height:2px;
+    width:100%;
+    top:0;
+    left:0;
+    background-color:#06D;
+    animation: page-load infinite ease-out 2s;
+    box-shadow:0 2px 2px rgba(0,0,0,.2);
+}
+ </style>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+
+   <body>
+      <nav>
+         <div class="logo">
+            STASS
+         </div>
+         <input type="checkbox" id="click">
+         <label for="click" class="menu-btn">
+         <i class="fas fa-bars"></i>
+         </label>
+         <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/contacts">Contact Us</a></li>
+          <li><a href="/about" class="active">About Us</a></li>
+          <li><a href="/booking">Book For Appointment </a></li>
+         </ul>
+      </nav>
+      <!--<div style="background: orange;height: 30px;border-left: 6px orange solid; left: 10px;position: 500;"></div>-->
+ <div class="container1">
+             <div class="history"><br><br><br>
+                <font color="#FF7F50"><h2>History Of STASS</h2><br><br></font>
+                <p>Stass is a Clinic which has its own Booking Service for Appointments with Doctors on the basis of user requirements. We operate and maintain the Stass clinic website . We hope our sincere efforts will meet the expectations of our valued patients in getting world-class booking appointment service.Thanks from our side and God will be always with you. WE ARE AVAILABLE FOR YOU 24*7. </p><br>
+
+
+
+             </div>
+             <div class="why">
+                 <font color="#FF7F50"> <h2>Why Do You Choose Our Website?</h2><br></font>
+
+                   *Easy To Use<br>
+
+                   *Friendly User Interface<br>
+
+                   *Fast &amp; Secure<br>
+
+                   *24*7 Available<br><br>
+        </div>
+ </div>
+<div class="footer">
+  <p class="fp">Designed And Developed By STASS Team</p>
+</div>
+<script>
+window.addEventListener("beforeunload",function(e){
+    document.body.className = "page-loading";
+},false);
+</script>
+   </body>
+</html>

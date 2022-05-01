@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		.container{
+			display: grid;
+			place-items: center;
+			
+		}
+		
+		.en{
+  width: 150px;
+  text-align: center;
+  border: 1px solid black;
+  padding: 5px;
+}
+.en1:nth-child(even){
+  background-color: #e5e5e5;
+}
+.en1:nth-child(odd){
+  background-color:;
+}
+	</style>
+	<title>Doctor Chart</title>
+</head>
+<body>
+	<div class="container">
+	<h1>Doctor Time Table</h1>
+	<table>
+		<thead>
+		  <tr>
+			
+			<th>Doctor's Name</th>
+			
+			
+			<th>Specialization</th>
+			
+			<th>Days</th>
+			<th>Time</th>
+			
+		  </tr>
+		</thead>
+		<tbody>
+		  {% for row in data %}
+			 <tr class="en1">
+			   <td class="en">{{row[0]}}</td>
+			   <td class="en">{{row[1]}}</td>
+			   <td class="en">{{row[2]}}</td>
+			   <td class="en">{{row[3]}}</td>
+			   
+			   
+			 </tr>
+			 {% endfor %}
+		</tbody>
+	  </table>
+	</div>
+</body>
+</html>

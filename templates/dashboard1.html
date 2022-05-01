@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>dashboard</title>
+
+
+
+
+
+		<style type="text/css">
+		*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+	outline:none;
+	text-decoration: none;
+}
+nav{
+	display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  width: 100%;
+  height:11.5vh;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0% 0% 0% 4%;
+	background: #3a3b3c;
+}
+nav .logo{
+	color: orange;
+	font-size: 35px;
+    font-weight: 600;
+}
+.lgout a{
+    position: absolute;
+    right: 10%;
+    top:5%;
+    color: #054d96;
+}
+.n{
+	text-align: center;
+	color: darkgoldenrod;
+	font-family: Sans-serif;
+	font-weight: bold;
+}
+/*.wrapper{
+	top: 100px;
+	max-width: 390px;
+	background: #F2F3F8;
+    padding: 30px;
+	border-radius: 5px;
+	box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+	position: absolute;
+	left:450px;
+	border-color: black;
+	border-style: solid;
+	border-width: 10px 3px;
+	border-radius: 20px;
+}*/
+.wrapper{
+    max-width: 500px;
+	height: 22rem;
+	margin: 150px auto 0;
+	display: flex;
+    flex-direction: column;
+	background: rgb(248, 238, 221);
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 4px;
+	padding: 4%;
+	margin-top: 7%;
+	margin-bottom: 5%;
+}
+.register-link a,
+.check-link a{
+	color: white;
+	text-decoration: none;
+
+}
+.register-link a:hover,
+.check-link a:hover{
+	text-decoration: underline;
+}
+a{
+	        background: orange;
+          padding: 10px;
+          color: white;
+}
+.dashboard{
+	font-family: monospace;
+	font-size: 40px;
+}
+</style>
+
+
+</head>
+<body>
+    <nav>
+		<div class="logo">STASS</div>
+        <div class="lgout">
+            <a href="/logout">Logout</a>
+        </div>
+	</nav>
+    <div class="lgout">
+        <a href="/logout">Logout</a>
+    </div>
+		<div class="wrapper">
+        <p class="n">Welcome Admin {{name}}</p>
+	<h1><P class="dashboard" align="center"><U><B>DASHBOARD</B></U></P></h1><br><br>
+	<h2 style="margin-bottom: 4%;"><P align="center"><B>GoTo Doctor Database</B></P></h2><br>
+		<div class="register-link"><B><P align="center"><a href="/dcheck">CHECK-DOCTOR</a></div><br><br>
+    <h2><P align="center"><B>GoTo Patient Database</B></P></h2><br>
+    	<div class="check-link"><B><P align="center"><a href="/pcheck">CHECK-PATIENT</a></div><br><br>
+
+    <!--<form action="/delete" method="POST">
+    	<input type="text" placeholder="type 1 to delete patient's data" name="delete">
+    	<input type="submit" value="DELETE">
+    </form>
+    </div>
+
+    <div class="flash">
+		<div class="col-sm-4">
+        {% with errors = get_flashed_messages(category_filter=["success"]) %}
+            {% if errors %}
+                {%- for message in errors %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <span class="span1">{{ message }}</span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endfor -%}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <div class="col-sm-4">
+        {% with errors = get_flashed_messages(category_filter=["warning"]) %}
+            {% if errors %}
+                {%- for message in errors %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <span class="span2">{{ message }}</span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endfor -%}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <div class="col-sm-4">
+        {% with errors = get_flashed_messages(category_filter=["danger"]) %}
+            {% if errors %}
+                {%- for message in errors %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <span class="span3">{{ message }}</span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endfor -%}
+            {% endif %}
+        {% endwith %}
+    </div>
+    </div>-->
+
+</body>
+</html>

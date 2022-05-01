@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<head>
+    <!--<meta charset='UTF-8'>-->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+	<title>
+		pdfGenerate
+	</title>
+	<style>
+	*{
+	}
+
+
+	label{
+			float: right;
+			position: relative;
+			font-family: monospace;
+			font-size: 18px;
+			margin-top: -3%;
+			border: none;
+
+		}
+	.portion .section .container{
+            left: 22%;
+            top:150%;
+            position: absolute;
+            font-size: 25px;
+			margin: 0%;
+			border: none;
+			color: rgb(72, 72, 243);
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+	h1{
+			margin-top:0%;
+			text-align: center;
+			position: relative;
+			/*left: 100px;*/
+			font-family: Arial, Helvetica, sans-serif;
+			background: orange;
+			padding: 30px;
+			font-size:40px;
+
+        }
+	.section{
+			left: 132px;
+            top:35px;
+			margin-top: 10%;
+            position: relative;
+            font-size: 25px;
+			margin: 0%;
+			border: none;
+			font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+			margin-bottom: 10%;
+            z-index: 5;
+		}
+	.portion{
+			margin: 5%;
+			margin-top: 15%;
+		border: 2px solid black;
+		}
+        /*#time{
+           float: left;
+		   color: black;
+		   margin-top: -3%;
+			border: none;
+		}*/
+		body:before
+
+    {
+		content: '';
+  position: absolute;
+  background-image:url('https://stass.pythonanywhere.com/user/Stass/files/home/Stass/mysite/static/images/markus-frieauff-IJ0KiXl4uys-unsplash-removebg-preview.png');
+  top:0%;
+  right: ;
+  bottom:0%;
+  left: -15%;
+  height:100vh;
+  width:100%;
+background-image:;
+opacity: 0.3;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: 1300px;
+}
+
+	</style>
+<script type="text/javascript">
+
+function starttime()
+{
+   let a;
+   a=new Date();
+   let h=a.getHours();
+   let m=a.getMinutes();
+   let s=a.getSeconds();
+   let date=a.toLocaleDateString(undefined);
+   m=checkTime(m);
+   s=checkTime(s);
+   //h1=disen(h);
+   document.getElementById('time').innerHTML=h + ":" + m + ":" + s + " | " + date;
+   let t=setTimeout(starttime,1000);
+}
+function checkTime(i)
+{
+	if (i<10) {i="0"+i};
+	return i;
+}
+
+
+window.addEventListener("beforeunload",function(e){
+document.body.className = "page-loading";
+},false);
+</script>
+
+</head>
+<body onload="starttime()">
+	<!--<div class="container" >
+
+        <label id="time"></label>
+    </div>-->
+	<div class="portion">
+	    <label>STASS BOOKING SERVICE</label>
+
+		<h1>   PATIENT BOOKING INFORMATION</h1>
+
+		<div class="section">
+		<br>Ticket ID:....................... {{Id}}<br><br>
+		Doctors name:.......................  {{Doname}}<br><br>
+		Specialization:...................... {{specialization}}<br><br>
+        Patient's Name:...................... {{patientN}}<br><br>
+        Patient's Mobile No.:................ {{patientM}}<br><br>
+
+		<div class="container" >
+		Thanks For Booking!! <br>
+		Please Be On Time.
+		</div>
+	    </div>
+	</div>
+</body>
+</html>

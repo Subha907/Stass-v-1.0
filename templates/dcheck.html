@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--<link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css')}}"/>-->
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+*{
+            margin: 0px;
+            padding: 0px;
+           font-family: 'Open Sans', sans-serif;
+        }
+body{
+  background:#ececec;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top:15%;
+  right: 0;
+  bottom:10%;
+  left: 0;
+  height:100%;
+  width:100%;
+  background: url('./static/images/logo.png');
+  opacity: 0.15;
+  pointer-events: none;
+}
+.container{
+            top: 18%;
+            background-color: yellow;
+            float: left;
+            position: absolute;
+            font-weight: bold;
+            font-family:  monospace;
+            padding: 1%;
+            margin-left: 1%;
+            font-size: 20px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          }
+
+.eForm{
+  display: none;
+}
+.myDIV {
+  width: 75%;
+  padding: 5%;
+  display: ;
+  background-color: white;
+  margin-top: 5%;
+  left: 10%;
+  position: relative;
+  border-width: 5% 3%;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#myDIV1 {
+  width: 60%;
+  padding: 0.5%;
+  display: none;
+  background-color:white ;
+  margin-top: 20px;
+  left: 17%;
+  position: relative;
+  border-color: black;
+  border-style: solid;
+  border-width: 5% 3%;
+  border-radius: 20px;
+}
+.header{
+  padding: 0.5%;
+  background:#3a3b3c;
+}
+.header nav .logo{
+  color: orange;
+  font-family: monospace;
+  font-size: 250%;
+}
+.header nav ul li{
+  color: white;
+  font-family: ;
+  font-size:200%;
+  text-align: center;
+  position: relative;
+}
+.en{
+  width: 150px;
+  text-align: center;
+  border: 1px solid black;
+  padding: 5px;
+}
+.en1:nth-child(even){
+  background-color: #e5e5e5;
+}
+.en1:nth-child(odd){
+  background-color:;
+}
+p{
+font-size: 100%;
+margin-top: 4%;
+margin-bottom: 10%;
+}
+button{
+   /*background: linear-gradient(to top, #ccff33 0%, #00ffff 100%);*/
+   font-size:100%;
+  padding:;
+}
+button .edit{
+
+   text-decoration:none;
+   color: white;
+}
+button .delete{
+
+   text-decoration:none;
+   color: white;
+}
+td .deleteb{
+    background-color:orangered ;
+    padding:12% 16% 12% 16%;
+    border: none;
+    border-radius: 5px
+}
+td .editb{
+    background-color:rgb(0,127,255) ;
+    padding:12% 16% 12% 16%;
+    border: none;
+    border-radius: 5px;
+}
+.entryclass{
+    background: linear-gradient(to top, #ccff33 0%, #00ffff 100%);
+    padding:1%;
+    border: none;
+    border-radius: 5px
+}
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #3a3b3c;;
+   color: black;
+   text-align: center;
+   height: 10%;
+}
+.footer .fp{
+
+  position:fixed;
+  bottom: -17%;
+  right:5%;
+  font-weight:900;
+  color:#ffffc2;
+}
+img{
+    position: absolute;
+    left: 48%;
+    transform: translate(-50%,50%);
+
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: rgba(243, 237, 237, 0.863);
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  text-align: center;
+  transition: all 5s ease-in-out;
+
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+  padding: 3%;
+  background: linear-gradient(to top, #ccff33 0%, #00ffff 100%);
+  margin-bottom: 10%;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+.box .button{
+    background: linear-gradient(to top, #ccff33 0%, #00ffff 100%);
+    padding:1%;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    color:black;
+}
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+</style>
+</head>
+<body onload="starttime()">
+<div class="header">
+<nav>
+         <div class="logo">
+            STASS
+         </div>
+         <ul>
+            <li>CHECK FOR DOCTOR DATABASE</li>
+         </ul>
+</nav>
+</div>
+<!--<p>Double Click the "Doctor" button below to view the Doctor's DB  </p>-->
+
+<!--<button onclick="myFunction()">Doctor</button>-->
+<div class="container" >
+        <label ><u>TIME-DATE:</u></label>
+        <label id="time"></label>
+    </div>
+<img src="{{ url_for('static',filename='images/admink.png')}}"/>
+<br>
+<br>
+<br>
+
+<div class="myDIV">
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Doctor's Name</th>
+      <th>PhoneNo</th>
+      <th>Email</th>
+      <th>Specialization</th>
+      <th>DOB</th>
+      <th>Days</th>
+      <th>Time</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in data %}
+       <tr class="en1">
+         <td class="en">{{row[0]}}</td>
+         <td class="en">{{row[1]}}</td>
+         <td class="en">{{row[2]}}</td>
+         <td class="en">{{row[3]}}</td>
+         <td class="en">{{row[4]}}</td>
+         <td class="en">{{row[5]}}</td>
+         <td class="en">{{row[6]}}</td>
+         <td class="en">{{row[7]}}</td>
+         <td><button class="editb"><a class="edit" href="{{url_for('dupdate',id=row[0])}}">Edit</a></button></td>
+         <td><button class="deleteb"><a class="delete" onclick="return confirm('Are you sure to delete?');" href="{{url_for('ddelete',id=row[0])}}">Delete</a></button></td>
+       </tr>
+       {% endfor %}
+  </tbody>
+</table>
+<div class="no-entries">
+        {% with errors = get_flashed_messages(category_filter=["no-entries"]) %}
+            {% if errors %}
+                {%- for message in errors %}
+
+                   {{message}}
+                {% endfor -%}
+            {% endif %}
+        {% endwith %}
+    </div>
+<br>
+<!--<button class="entryclass" onclick="openForm()">Add Entry</button>
+<div class="eForm" id="myForm">
+
+
+      <h2>New Entry</h2>
+      <form action="/newEntry" method="POST">
+        <input type="text" placeholder="doctor's name" name="dname">
+        <input type="text" name="specialization" placeholder="specialization">
+        <input type="text" name="PhoneNo" placeholder="PhoneNo">
+        <input type="text" name="Email" placeholder="Email">
+        <input type="text" name="DOB" placeholder="DOB">
+        <input type="submit" value="save">
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      </form>
+
+  </div>
+</div>-->
+<div class="box">
+	<a class="button" href="#popup1">Add Entry</a>
+</div>
+<div id="popup1" class="overlay">
+	<div class="popup">
+		<h2>New Entry</h2>
+      <a class="close" href="#">&times;</a>
+      <form action="/newEntry" method="POST">
+        <input type="text" placeholder="doctor's name" name="dname"><br><br>
+        <input type="text" name="specialization" placeholder="specialization"><br><br>
+        <input type="text" name="PhoneNo" placeholder="PhoneNo"><br><br>
+        <input type="text" name="Email" placeholder="Email"><br><br>
+        <input type="text" name="DOB" placeholder="DOB"><br><br>
+        <input type="text" name="Days" placeholder="Days"><br><br>
+        <input type="text" name="Time" placeholder="Time"><br><br>
+        <input type="submit" value="Save">
+
+      </form>
+	</div>
+</div>
+</div>
+<div class="entries-mssg">
+        {% with errors = get_flashed_messages(category_filter=["entries-mssg"]) %}
+            {% if errors %}
+                {%- for message in errors %}
+
+                   {{message}}
+                {% endfor -%}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+<p><b>Note:</b>STASS ADMIN, Please review the database for any updates</p>
+<div class="footer">
+  <p class="fp">Designed And Developed By STASS Team</p>
+</div>
+<script>
+function openForm(){
+  document.getElementById("myForm").style.display = "block";
+}
+function closeForm(){
+  document.getElementById("myForm").style.display = "none";
+}
+
+function starttime()
+        {
+           let a;
+           a=new Date();
+           let h=a.getHours();
+           let m=a.getMinutes();
+           let s=a.getSeconds();
+           let date=a.toLocaleDateString(undefined);
+           m=checkTime(m);
+           s=checkTime(s);
+           document.getElementById('time').innerHTML=h + ":" + m + ":" + s + " ; " + date;
+           let t=setTimeout(starttime,1000);
+        }
+        function checkTime(i)
+        {
+            if (i<10) {i="0"+i};
+            return i;
+        }
+</script>
+
+</body>
+</html>
+

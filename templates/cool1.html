@@ -1,0 +1,527 @@
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>HomePage</title>
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap');
+body{
+ 	margin:0;
+ 	font-family: 'Source Sans Pro', sans-serif;
+ 	font-weight: 300;
+ }
+
+ *{
+ 	box-sizing: border-box;
+ }
+
+marquee{
+background:rgb(219, 217, 217);
+display:flex;
+width:100vw;
+color:#3a3b3c;
+font-family:Noto Sans, sans-serif;
+font-size:50%;
+ z-index: -1;
+ font-size: 200%;
+}
+nav{
+  display: flex;
+  height: 80px;
+  width: 100vw;
+  background-color:#2f4858;
+   align-items: center;
+  justify-content: space-between;
+  padding: 0 50px 0 100px;
+  flex-wrap: wrap;
+}
+nav .logo{
+  color: #FFA500;
+  font-size: 35px;
+  font-weight: 600;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+nav .logo::first-letter{
+  color: whitesmoke;
+  font-size: 45px;
+  font-weight: 600;
+
+
+}
+nav ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+nav ul li{
+  margin: 0 5px;
+}
+nav ul li a{
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+nav ul li a.active,
+nav ul li a:hover{
+  color: #111;
+  background: #FFA500
+}
+nav .menu-btn i{
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+}
+input[type="checkbox"]{
+  display: none;
+}
+@media (max-width: 1000px){
+  nav{
+    padding: 0 40px 0 50px;
+  }
+}
+@media (max-width: 920px) {
+  nav .menu-btn i{
+    display: block;
+  }
+  #click:checked ~ .menu-btn i:before{
+    content: "\f00d";
+  }
+
+  nav ul{
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    background: #111;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: block;
+    transition: all 0.3s ease;
+    z-index: 3;
+  }
+  #click:checked ~ ul{
+    left: 0;
+  }
+  nav ul li{
+    width: 100%;
+    margin: 40px 0;
+  }
+  nav ul li a{
+    width: 100%;
+    margin-left: -100%;
+    display: block;
+    font-size: 20px;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  #click:checked ~ ul li a{
+    margin-left: 0px;
+  }
+  nav ul li a.active,
+  nav ul li a:hover{
+    background: none;
+    color: cyan;
+  }
+}
+}
+.content{
+  position: absolute;
+  top: 60%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  width: 100%;
+height:80%;
+  padding: 0 30px;
+
+}
+.container{
+  max-width: 1170px;
+ 	width: 100%;
+ 	margin:auto;
+}
+.home{
+ 	height: 100vh;
+ 	background-image: url('./static/images/cdc-p33DqVXhWvs-unsplash.jpg');
+ 	background-size: 1350px 900px;
+ 	background-position: center;
+   background-repeat: ;
+ 	display: flex;
+ 	flex-wrap: wrap;
+ 	padding:50px 15px;
+ 	position: relative;
+  width:100vw;
+ }
+ .home::before{
+ 	content: '';
+ 	position: absolute;
+ 	left:0;
+ 	top:0;
+ 	width: 100%;
+ 	height: 100%;
+ 	background-color: rgba(0,0,0,0.7);
+ 	z-index: 1;
+ }
+
+ .home .home-text{
+ 	text-align: center;
+ 	position: relative;
+ 	z-index: 2;
+ }
+
+.home .home-text h1{
+	color:#ffffff;
+	font-size: 30px;
+	color:#ffffff;
+	line-height: 50px;
+	font-weight: 700;
+	margin:0 0 20px;
+
+}
+.home .home-text p{
+	margin:0;
+	overflow: hidden;
+}
+.home .home-text p span{
+    font-size: 25px;
+    color:#ff2c45;
+    font-weight: 700;
+    display: inline-block;
+    line-height: 46px;
+display:none;
+
+}
+.home .home-text p span a{
+
+  border: none;
+  border-radius: 3px;
+  color: rgb(10, 10, 10);
+  padding: 0.5% 1.5%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 2px;
+  cursor: pointer;
+
+}
+/*.home .home-text p span button{
+  background-color: #FFA500;
+  text-decoration: none;
+  bottom:focus[outline:0;]
+}*/
+
+.home .home-text p span.text-in{
+	display: block;
+	animation: textIn .5s ease;
+}
+.home .home-text p span.text-out{
+	animation: textOut .5s ease;
+}
+
+.others{
+  display: flex;
+  background-color: whitesmoke;
+justify-content: center;
+  align-items: center;
+}
+.con{
+  margin: auto;
+  background-color: white;
+  display: flex;
+  /*padding: 3rem 4rem;*/
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid orange;
+  border-radius: 8px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sub-con1{
+  background-color: white;
+  /*padding: 1rem 4rem;*/
+}
+
+.sub-con2{
+  background-color: #ffc14d;
+  padding: 2rem 4rem;
+  color: ;
+  font-style: italic;
+  font-weight: 800;
+}
+.img-con-image{
+  /*height: 90px;
+  width: 110px;*/
+  height: 180px;
+  width: 200px;
+
+}
+.img-con-image-2{
+  height: 180px;
+  width: 200px;
+}
+
+@keyframes textIn{
+	0%{
+		transform: translateY(100%);
+	}
+	100%{
+		transform: translateY(0%);
+	}
+}
+@keyframes textOut{
+	0%{
+		transform: translateY(0%);
+	}
+	100%{
+		transform: translateY(-100%);
+
+	}
+}
+
+
+button{
+  position: relative;
+
+  height: 50px;
+  width: 150px;
+  margin: 0 35px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  background:rgb(153, 252, 161);
+  color: rgb(14, 10, 252);
+  font-size: 14px;
+  font-weight: 1000;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.5s;
+}
+button:first-child:hover{
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 400%;
+}
+button:last-child:hover{
+  background: linear-gradient(90deg, #fa7199, #f5ce62, #e43603, #fa7199);
+  background-size: 400%;
+}
+button:first-child:before,
+button:last-child:before{
+  content: '';
+  position: absolute;
+  background: inherit;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  border-radius: 50px;
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+button:first-child:hover:before,
+button:last-child:hover:before{
+  opacity: 1;
+  z-index: -1;
+}
+button:hover{
+  z-index: 1;
+  animation: glow 4s linear infinite;
+}
+@keyframes glow {
+  0%{
+    background-position: 0%;
+  }
+  100%{
+    background-position: 400%;
+  }
+}
+
+
+.footer {
+   display: flex;
+  height: 100vh;
+  width: 100vw;
+  flex-wrap: wrap;
+   position:relative;
+   left: 0;
+   bottom: 0;
+   width: 100vw;
+   background-color: #2f4858;
+   color: black;
+   text-align: center;
+   height: 10%;
+}
+.footer .fp{
+  margin-top:20;
+  position:absolute;
+  bottom: 2%;
+  right:5%;
+  font-weight:900;
+  color:#ffffc2
+}
+@media (min-width: 640px) {
+ marquee {
+  font-size:1rem;
+}
+}
+@media (min-width:960px) {
+ marquee {
+  font-size:1.2rem;
+}
+}
+@media (min-width:1100px) {
+ marquee {
+  font-size:1.5rem;
+}
+}
+
+@media (max-width:1000px) {
+ .others {
+  flex-direction: column;
+}
+}
+
+@media (max-width:406px) {
+ .con {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+}
+@keyframes page-load {
+    from {
+        background-color: #ffc422;
+    }
+    to {
+        background-color: #c0392b;
+    }
+}
+.page-loading::before {
+    content:" ";
+    display:block;
+    position:fixed;
+    z-index:10;
+    height:2px;
+    width:100%;
+    top:0;
+    left:0;
+    background-color:#06D;
+    animation: page-load infinite ease-out 2s;
+    box-shadow:0 2px 2px rgba(0,0,0,.2);
+}
+
+ </style>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.6.1/jquery.lettering.min.js" integrity="sha512-VJ/iYbiu1eJ6yLimfTi65t2R9TFcG5D9X8ZCfbbEFhTfPnKJh8byoKXEawi5ScJZBYL1eiirL1+MczZDx0Tz9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <body>
+      <nav>
+         <div class="logo">
+            STASS
+         </div>
+         <input type="checkbox" id="click">
+         <label for="click" class="menu-btn">
+         <i class="fas fa-bars"></i>
+         </label>
+         <ul>
+            <li><a class="active" href="#">Home</a></li>
+
+            <li><a href="/contacts">Contacts</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/booking">Book For Appointment</a></li>
+         </ul>
+      </nav>
+    <marquee behavior="scroll" direction="left" scrollamount="8">------Please Book On The Day Of Appoinment [FROM 6AM TO 9AM].--------&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-------Wear Face Mask.Wash Your Hand Frequently.Avoid Close Contact.------</marquee>
+<section class="home">
+     <div class="container">
+        <div class="row">
+            <div class="home-text">
+                 <h1>HOW TO BOOK AN APPOINTMENT</h1>
+                 <p class="animate-text">
+                    <span>FOLLOW THE STEPS</span>
+                    <span>WE WILL DO YOUR BOOKING</span>
+                    <span>JUST GO TO BOOK FOR APPOINTMENT <br><br>
+                        <button><a href="/booking">Book Now</a></button>
+                    </span>
+                    <span>SUBMIT YOUR BOOKING FORM</span>
+                    <span>DOWNLOAD THE PDF AND MEET DOCTORS ON TIME.
+
+                    </span>
+                 </p>
+            </div>
+        </div>
+     </div>
+ </section>
+ <section class="others">
+   <div class="con">
+    <div class="sub-con1">
+      <img class="img-con-image" src="../static/images/image-1.jpg">
+    </div>
+    <div class="sub-con2">
+      Easy to manage interfaces for clinincs
+    </div>
+   </div>
+   <div class="con">
+    <div class="sub-con1">
+      <img class="img-con-image" src="../static/images/image-2.jpg">
+    </div>
+    <div class="sub-con2">
+      Easy booking interface and Service
+    </div>
+   </div>
+   <div class="con">
+    <div class="sub-con1">
+      <img class="img-con-image" src="../static/images/image-3.jpg">
+    </div>
+    <div class="sub-con2">
+      Client support for any issues
+    </div>
+   </div>
+ </section>
+<div class="footer">
+  <p class="fp">Designed And Developed By STASS Team</p>
+</div>
+<script>
+const txts=document.querySelector(".animate-text").children,
+               txtsLen=txts.length;
+           let index=0;
+          const textInTimer=4000,
+                textOutTimer=3800;
+
+         function animateText() {
+            for(let i=0; i<txtsLen; i++){
+              txts[i].classList.remove("text-in","text-out");
+            }
+            txts[index].classList.add("text-in");
+
+            setTimeout(function(){
+                txts[index].classList.add("text-out");
+            },textOutTimer)
+
+            setTimeout(function(){
+
+              if(index == txtsLen-1){
+                  index=0;
+                }
+               else{
+                   index++;
+                 }
+                animateText();
+            },textInTimer);
+         }
+
+         window.onload=animateText;
+window.addEventListener("beforeunload",function(e){
+    document.body.className = "page-loading";
+},false);
+</script>
+   </body>
+</html>
